@@ -3,7 +3,9 @@ guid: 16bb5c12793d78a4190ddb54f2296672
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - "poussi\xE8re": {fileID: 1620274549601257701, guid: 1c93e4fb83dd516478a12edd37921f8c,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

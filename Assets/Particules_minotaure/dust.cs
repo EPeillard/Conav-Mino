@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class dust : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    public GameObject poussière;
+    float timer = 0;
     // Update is called once per frame
     void Update()
     {
         
+        
+
+        if (timer > 10)
+        {
+            Instantiate(poussière);
+            timer = 0;
+        }
+        else
+        {
+            timer += Time.deltaTime;
+        }
+        Debug.Log(timer);
     }
 }
