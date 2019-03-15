@@ -186,7 +186,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28768
+  m_Name: pb_Mesh19800
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -354,8 +354,8 @@ GameObject:
   - component: {fileID: 46684918}
   - component: {fileID: 46684917}
   m_Layer: 0
-  m_Name: Broken Wall
-  m_TagString: Wall
+  m_Name: Broken Wall 2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -754,7 +754,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29166
+  m_Name: pb_Mesh20204
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -1133,7 +1133,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28782
+  m_Name: pb_Mesh19814
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -1371,11 +1371,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1438562543947538, guid: e193aeba793b2ed4da311c6a1f433691, type: 3}
       propertyPath: m_Name
-      value: Door
+      value: exitDoor
       objectReference: {fileID: 0}
     - target: {fileID: 1438562543947538, guid: e193aeba793b2ed4da311c6a1f433691, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 1438562543947538, guid: e193aeba793b2ed4da311c6a1f433691, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1411,7 +1411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4750932625193884, guid: e193aeba793b2ed4da311c6a1f433691, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4750932625193884, guid: e193aeba793b2ed4da311c6a1f433691, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1427,7 +1427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1814416910804000, guid: e193aeba793b2ed4da311c6a1f433691, type: 3}
       propertyPath: m_TagString
-      value: Wall
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1814416910804000, guid: e193aeba793b2ed4da311c6a1f433691, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1455,8 +1455,8 @@ GameObject:
   - component: {fileID: 216460275}
   - component: {fileID: 216460274}
   m_Layer: 0
-  m_Name: Wall
-  m_TagString: Wall
+  m_Name: 'Wall '
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1786,7 +1786,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28828
+  m_Name: pb_Mesh19860
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -1946,7 +1946,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28680
+  m_Name: pb_Mesh19710
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -2746,7 +2746,7 @@ GameObject:
   - component: {fileID: 399025522}
   m_Layer: 0
   m_Name: Inivisible Wall
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2763,7 +2763,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 615898189}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!64 &399025522
 MeshCollider:
@@ -3045,7 +3045,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29030
+  m_Name: pb_Mesh20056
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -3199,6 +3199,75 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &418005377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 418005379}
+  - component: {fileID: 418005378}
+  m_Layer: 0
+  m_Name: Point Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &418005378
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418005377}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 2
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &418005379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418005377}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.77, y: 2.017, z: 3.02}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &439625574
 GameObject:
   m_ObjectHideFlags: 0
@@ -3238,7 +3307,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28874
+  m_Name: pb_Mesh19900
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -3451,14 +3520,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1838579658588474, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1841174530698158, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 108401551194380382, guid: 29a092a99963baa4ea9cf8a5de412734,
         type: 3}
       propertyPath: m_Shadows.m_Type
@@ -3483,6 +3544,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ShadowRadius
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838579658588474, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841174530698158, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
@@ -4288,11 +4357,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100002, guid: 26aec004d42c0a640bf94c71b19365ec, type: 3}
       propertyPath: m_Name
-      value: Door
+      value: entranceDoor
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 26aec004d42c0a640bf94c71b19365ec, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 26aec004d42c0a640bf94c71b19365ec, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 26aec004d42c0a640bf94c71b19365ec, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4328,7 +4401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 26aec004d42c0a640bf94c71b19365ec, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 26aec004d42c0a640bf94c71b19365ec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4364,7 +4437,7 @@ GameObject:
   - component: {fileID: 521853482}
   - component: {fileID: 521853481}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: Wall 3
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4377,13 +4450,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521853479}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.9592085, y: 0.8202028, z: 9.235079}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
+  m_LocalPosition: {x: 4.923, y: 0.8202028, z: 7.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 615898189}
   m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 180}
 --- !u!64 &521853481
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4877,7 +4950,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29076
+  m_Name: pb_Mesh20108
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -5281,9 +5354,9 @@ Transform:
   - {fileID: 1267445740}
   - {fileID: 1229284123}
   - {fileID: 46684916}
+  - {fileID: 399025521}
   - {fileID: 205476700}
   - {fileID: 518736798}
-  - {fileID: 399025521}
   - {fileID: 1919395517}
   - {fileID: 216460273}
   - {fileID: 1476801514}
@@ -5320,6 +5393,53 @@ MonoBehaviour:
   - {x: 0.147, y: 0.77, z: 0.197}
   tolerance: 0.2
   goal: 0
+--- !u!1 &652401388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 652401390}
+  - component: {fileID: 652401389}
+  m_Layer: 0
+  m_Name: dustScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &652401389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652401388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16bb5c12793d78a4190ddb54f2296672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dust_effect: {fileID: 1620274549601257701, guid: 1c93e4fb83dd516478a12edd37921f8c,
+    type: 3}
+  walls: []
+  minotaurNoise: {fileID: 0}
+--- !u!4 &652401390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652401388}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.06784439, y: 1.7378104, z: 8.144186}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &671062767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5427,7 +5547,7 @@ GameObject:
   - component: {fileID: 680645786}
   m_Layer: 0
   m_Name: Arch
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6516,7 +6636,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28640
+  m_Name: pb_Mesh19670
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -6676,7 +6796,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28978
+  m_Name: pb_Mesh20004
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -6836,7 +6956,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29004
+  m_Name: pb_Mesh20030
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -6996,7 +7116,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29192
+  m_Name: pb_Mesh20230
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -7179,7 +7299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4032536930469326, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.234179
+      value: 8.203
       objectReference: {fileID: 0}
     - target: {fileID: 4032536930469326, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
       propertyPath: m_LocalRotation.x
@@ -7213,14 +7333,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1838579658588474, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1841174530698158, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 108401551194380382, guid: 29a092a99963baa4ea9cf8a5de412734,
         type: 3}
       propertyPath: m_Shadows.m_Type
@@ -7246,6 +7358,14 @@ PrefabInstance:
       propertyPath: m_ShadowRadius
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1838579658588474, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841174530698158, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
 --- !u!4 &889212984 stripped
@@ -7269,7 +7389,7 @@ GameObject:
   - component: {fileID: 918585401}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -7911,7 +8031,7 @@ GameObject:
   - component: {fileID: 1003483434}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -8210,7 +8330,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29152
+  m_Name: pb_Mesh20190
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -8504,7 +8624,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28904
+  m_Name: pb_Mesh19930
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -9088,7 +9208,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28752
+  m_Name: pb_Mesh19784
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -9613,7 +9733,7 @@ GameObject:
   - component: {fileID: 1229284125}
   - component: {fileID: 1229284124}
   m_Layer: 0
-  m_Name: Broken Wall
+  m_Name: Broken Wall 1
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10153,7 +10273,7 @@ GameObject:
   - component: {fileID: 1267445741}
   m_Layer: 0
   m_Name: Arch
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -11322,7 +11442,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307522062}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.9772077, y: 3.8102028, z: 1.3830786}
+  m_LocalPosition: {x: 2.9772077, y: 3.89, z: 1.3830786}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1441842233}
@@ -11627,7 +11747,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28964
+  m_Name: pb_Mesh19990
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -12077,14 +12197,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1838579658588474, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1841174530698158, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 108401551194380382, guid: 29a092a99963baa4ea9cf8a5de412734,
         type: 3}
       propertyPath: m_Shadows.m_Type
@@ -12109,6 +12221,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ShadowRadius
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838579658588474, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841174530698158, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
@@ -12367,7 +12487,7 @@ GameObject:
   - component: {fileID: 1476801516}
   - component: {fileID: 1476801515}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: Wall 2
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12969,7 +13089,7 @@ GameObject:
   - component: {fileID: 1589177902}
   m_Layer: 0
   m_Name: Arch
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -14052,14 +14172,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1838579658588474, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1841174530698158, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 108401551194380382, guid: 29a092a99963baa4ea9cf8a5de412734,
         type: 3}
       propertyPath: m_Shadows.m_Type
@@ -14084,6 +14196,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ShadowRadius
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838579658588474, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841174530698158, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
@@ -14134,7 +14254,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29228
+  m_Name: pb_Mesh20266
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -14625,7 +14745,7 @@ GameObject:
   - component: {fileID: 1746198119}
   m_Layer: 0
   m_Name: Inivisible Wall
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -14924,7 +15044,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29116
+  m_Name: pb_Mesh20148
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -15092,7 +15212,7 @@ GameObject:
   - component: {fileID: 1776880058}
   - component: {fileID: 1776880057}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: Wall 1
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15480,7 +15600,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28726
+  m_Name: pb_Mesh19756
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -15697,18 +15817,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1838579658588474, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1841174530698158, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 4413294318622722, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
     - target: {fileID: 108401551194380382, guid: 29a092a99963baa4ea9cf8a5de412734,
         type: 3}
       propertyPath: m_Shadows.m_Type
@@ -15733,6 +15841,18 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ShadowRadius
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838579658588474, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841174530698158, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413294318622722, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29a092a99963baa4ea9cf8a5de412734, type: 3}
@@ -15844,7 +15964,7 @@ GameObject:
   - component: {fileID: 1847736274}
   m_Layer: 0
   m_Name: Arch
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -17143,7 +17263,7 @@ GameObject:
   - component: {fileID: 1919395518}
   m_Layer: 0
   m_Name: Inivisible Wall
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -17450,7 +17570,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29146
+  m_Name: pb_Mesh20184
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
