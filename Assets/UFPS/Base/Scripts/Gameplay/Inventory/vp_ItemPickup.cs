@@ -24,6 +24,9 @@ using System;
 public class vp_ItemPickup : MonoBehaviour
 {
 
+    public GameObject attachTo;
+    public Vector3 range;
+
 #if UNITY_EDITOR
 	[vp_ItemID]
 #endif
@@ -421,13 +424,16 @@ public class vp_ItemPickup : MonoBehaviour
 
 
 	/// <summary>
-	/// 
+	/// Appelée par TryInteract du ItemGrab attaché à l'objet
 	/// </summary>
 	public void TryGiveTo(Collider col)
 	{
+        // only do something if the key was pressed
+        if (!vp_Input.GetButton("Interact"))
+            return;
 
-		// only do something if the trigger is still active
-		if (m_Depleted)
+        // only do something if the trigger is still active
+        if (m_Depleted)
 			return;
 
 		vp_Inventory inventory;
@@ -465,7 +471,7 @@ public class vp_ItemPickup : MonoBehaviour
 		if (result == true)
 		{
 			m_PickedUpAmount = (vp_TargetEventReturn<vp_ItemType, int>.SendUpwards(col, "GetItemCount", m_Item.Type) - prevAmount);	// calculate resulting amount given
-			OnSuccess(col.transform);
+			OnSuccess(col.transform); //Actions à opérer le cas échéant
 		}
 		else
 		{
@@ -489,9 +495,9 @@ public class vp_ItemPickup : MonoBehaviour
 
 
 	/// <summary>
-	/// 
+	/// Appelée en cas de réussite de TryGiveTo, permet de gérer l'effet de l'interaction
 	/// </summary>
-	protected virtual void OnSuccess(Transform recipient)
+	protected virtual void OnSuccess(Transform recipient) //Recipient = player
 	{
 
 		m_Depleted = true;
@@ -504,8 +510,13 @@ public class vp_ItemPickup : MonoBehaviour
 			Audio.Play();
 		}
 
-		Renderer.enabled = false;
+        //Gérer le comportement ici
 
+        //Renderer.enabled = false;
+        this.transform.SetParent(attachTo.transform);
+        this.transform.localPosition = range;
+
+        //Gestion du message
 		string msg = "";
 
 		if ((m_PickedUpAmount < 2) || (ItemType == typeof(vp_UnitBankType)) || (ItemType.BaseType == typeof(vp_UnitBankType)))

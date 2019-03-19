@@ -1502,6 +1502,8 @@ GameObject:
   - component: {fileID: 11417338}
   - component: {fileID: 11483842}
   - component: {fileID: 11485604}
+  - component: {fileID: 5017816755479954638}
+  - component: {fileID: 3465406904220976705}
   m_Layer: 30
   m_Name: VRHero
   m_TagString: Player
@@ -2005,7 +2007,7 @@ MonoBehaviour:
   SurfaceType: {fileID: 11400000, guid: d5038622b1b2a6f43874b4c45ddadc71, type: 2}
   AllowDecals: 0
   SurfaceID: 0
-  surfaceTypeHelp: 172
+  surfaceTypeHelp: 161
 --- !u!114 &11483842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2079,6 +2081,51 @@ MonoBehaviour:
   FallImpactEvent: {fileID: 11400000, guid: 84d80447291911e46b7ff27e4a8902d4, type: 2}
   FallImpactThreshold: 0.15
   m_MuteLocalFootsteps: 0
+--- !u!114 &5017816755479954638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8814e500adaf70c4ca95b44fcf733c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 0
+  Amount: 0
+  m_Item:
+    Type: {fileID: 0}
+    GiveOnContact: 1
+    helpbox: 0
+  m_Recipient:
+    Tags: []
+    helpbox: 0
+  m_Sound:
+    PickupSound: {fileID: 0}
+    PickupSoundSlomo: 1
+    PickupFailSound: {fileID: 0}
+    FailSoundSlomo: 1
+  m_Messages:
+    SuccessSingle: Picked up {2}.
+    SuccessMultiple: Picked up {4} {1}s.
+    FailSingle: Can't pick up {2} right now.
+    FailMultiple: Can't pick up {4} {1}s right now.
+    helpbox: 0
+--- !u!135 &3465406904220976705
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119886}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &120164
 GameObject:
   m_ObjectHideFlags: 0

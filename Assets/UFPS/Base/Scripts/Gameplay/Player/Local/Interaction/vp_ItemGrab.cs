@@ -61,7 +61,7 @@ public class vp_ItemGrab : vp_Interactable
 
 
 	/// <summary>
-	/// 
+	/// Surcharge TryInteract de Interactables, appelée par le FPInteractManager
 	/// </summary>
 	public override bool TryInteract(vp_PlayerEventHandler player)
 	{
@@ -72,7 +72,7 @@ public class vp_ItemGrab : vp_Interactable
 		if(m_Player == null)
 			m_Player = player;
 
-		ItemPickup.TryGiveTo(m_Player.GetComponent<Collider>());
+		ItemPickup.TryGiveTo(m_Player.GetComponent<Collider>());//TryGiveTo de ItemPickup gère l'inventaire
 
 		return true;
 

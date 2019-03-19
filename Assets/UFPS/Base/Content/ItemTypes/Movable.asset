@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45914f847cd48754ebabf383987ef88c, type: 3}
-  m_Name: Briquet
+  m_Name: Movable
   m_EditorClassIdentifier: 
-  IndefiniteArticle: Un
-  DisplayName: briquet
+  IndefiniteArticle: a
+  DisplayName: thing
   Description: 
   Icon: {fileID: 0}
   Space: 0

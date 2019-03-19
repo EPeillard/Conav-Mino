@@ -26,21 +26,22 @@ using UnityEngine.SceneManagement;
 public class vp_FPPlayerEventHandler : vp_PlayerEventHandler
 {
 
-	// these declarations determine which events are supported by the
-	// player event handler. it is then up to external classes to fill
-	// them up with delegates for communication.
+    // these declarations determine which events are supported by the
+    // player event handler. it is then up to external classes to fill
+    // them up with delegates for communication.
 
-	// TIPS:
-	//  1) mouse-over on the event types (e.g. vp_Message) for usage info.
-	//  2) to find the places where an event is SENT, you can do 'Find All
-	// References' on the event in your IDE. if this is not available, you
-	// can search the project for the event name preceded by '.' (.Reload)
-	//  3) to find the methods that LISTEN to an event, search the project
-	// for its name preceded by '_' (_Reload)
+    // TIPS:
+    //  1) mouse-over on the event types (e.g. vp_Message) for usage info.
+    //  2) to find the places where an event is SENT, you can do 'Find All
+    // References' on the event in your IDE. if this is not available, you
+    // can search the project for the event name preceded by '.' (.Reload)
+    //  3) to find the methods that LISTEN to an event, search the project
+    // for its name preceded by '_' (_Reload)
 
 
-	// gui
-	public vp_Message<vp_DamageInfo> HUDDamageFlash;
+
+    // gui
+    public vp_Message<vp_DamageInfo> HUDDamageFlash;
 	public vp_Message<string> HUDText;
 	public vp_Value<Texture> Crosshair;
 	public vp_Value<Texture2D> CurrentAmmoIcon;

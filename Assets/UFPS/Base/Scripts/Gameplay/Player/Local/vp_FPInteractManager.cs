@@ -114,32 +114,44 @@ public class vp_FPInteractManager : MonoBehaviour
 	/// </summary>
 	protected virtual bool CanStart_Interact()
 	{
-		
-		// if we are already interacting, we need to stop interacting so a new interaction can begin.
-		if(ShouldFinishInteraction())
-			return false;
-		
-		// if the weapon is being set, don't allow interaction
-		if(m_Player.SetWeapon.Active)
-			return false;
+        Debug.Log("Interact key pressed!");
+
+        // if we are already interacting, we need to stop interacting so a new interaction can begin.
+        if (ShouldFinishInteraction())
+        {
+            Debug.Log("Already interacting!");
+            return false;
+        }
+
+        // if the weapon is being set, don't allow interaction
+        if (m_Player.SetWeapon.Active)
+        {
+            Debug.Log("Weapon set!");
+            return false;
+        }
 
 		if (m_LastInteractable != null)
 		{
 			// if the interactable is of type vp_InteractType.Normal, carry on
 			if (m_LastInteractable.InteractType != vp_Interactable.vp_InteractType.Normal)
 				return false;
-			
-			// check if we can interact with the interactable, if so, carry on
-			if (!m_LastInteractable.TryInteract(m_Player))
-				return false;
+
+            // check if we can interact with the interactable, if so, carry on
+            if (!m_LastInteractable.TryInteract(m_Player))//Try interact de ItemGrab opère l'action
+            {
+                Debug.Log("Can't interact!");
+                return false;
+            }
 			
 			// reset some things
 			ResetCrosshair(false);
-			
-			return true; // allow interaction
+
+            Debug.Log("Interaction allowed!");
+            return true; // allow interaction
 		}
 
-		return false; // if all else fails, don't allow interaction
+        Debug.Log("No interactable!");
+        return false; // if all else fails, don't allow interaction
 		
 	}
 	
@@ -284,8 +296,8 @@ public class vp_FPInteractManager : MonoBehaviour
 	/// </summary>
 	protected virtual void OnControllerColliderHit(ControllerColliderHit hit)
 	{
-
-		Rigidbody body = hit.collider.attachedRigidbody;
+        Debug.Log("Hit!");
+        Rigidbody body = hit.collider.attachedRigidbody;
 
 		if (body == null || body.isKinematic)
 			return;
@@ -295,7 +307,7 @@ public class vp_FPInteractManager : MonoBehaviour
 			m_Interactables.Add(hit.collider, interactable = hit.collider.GetComponent<vp_Interactable>());
 		
 		if(interactable == null)
-			return;
+            return;
 		
 		if(interactable.InteractType != vp_Interactable.vp_InteractType.CollisionTrigger)
 			return;

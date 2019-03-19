@@ -128,6 +128,7 @@ public class vp_FPInput : vp_Component
 
 	/// <summary>
 	/// handles interaction with the game world
+    /// Point de départ : à l'appui sur la touche, envoie un message au FPInteractManager, capté par CanInteract
 	/// </summary>
 	protected virtual void InputInteract()
 	{
