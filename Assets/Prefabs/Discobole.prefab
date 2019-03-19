@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3366498}
   - component: {fileID: 2307298}
   - component: {fileID: 20563830}
+  - component: {fileID: 4579907300122189571}
+  - component: {fileID: 6500609818996904148}
   m_Layer: 0
   m_Name: Discobole
   m_TagString: Untagged
@@ -102,3 +104,50 @@ LODGroup:
     fadeTransitionWidth: 0
     renderers: []
   m_Enabled: 1
+--- !u!114 &4579907300122189571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192644}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8814e500adaf70c4ca95b44fcf733c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachTo: {fileID: 0}
+  range: {x: 0, y: 0, z: 0}
+  ID: 0
+  Amount: 0
+  m_Item:
+    Type: {fileID: 0}
+    GiveOnContact: 1
+    helpbox: 166
+  m_Recipient:
+    Tags: []
+    helpbox: 0
+  m_Sound:
+    PickupSound: {fileID: 0}
+    PickupSoundSlomo: 1
+    PickupFailSound: {fileID: 0}
+    FailSoundSlomo: 1
+  m_Messages:
+    SuccessSingle: Picked up {2}.
+    SuccessMultiple: Picked up {4} {1}s.
+    FailSingle: Can't pick up {2} right now.
+    FailMultiple: Can't pick up {4} {1}s right now.
+    helpbox: 0
+--- !u!135 &6500609818996904148
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192644}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.6815883
+  m_Center: {x: -0.12951171, y: 1.6796299, z: -0.073582456}

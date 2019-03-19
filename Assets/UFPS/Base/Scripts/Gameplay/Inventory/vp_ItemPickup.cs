@@ -434,39 +434,72 @@ public class vp_ItemPickup : MonoBehaviour
 
         // only do something if the trigger is still active
         if (m_Depleted)
-			return;
+        {
+            Debug.Log("trigger inactif");
+            return;
+        }
+
+        bool put = false;
 
 		vp_Inventory inventory;
-		if (!m_ColliderInventories.TryGetValue(col, out inventory))
-		{
-			inventory = vp_TargetEventReturn<vp_Inventory>.SendUpwards(col, "GetInventory");
-			m_ColliderInventories.Add(col, inventory);
-		}
+        if (!m_ColliderInventories.TryGetValue(col, out inventory))
+        {
+            inventory = vp_TargetEventReturn<vp_Inventory>.SendUpwards(col, "GetInventory");
+            m_ColliderInventories.Add(col, inventory);
+        }
 
-		if (inventory == null)
-			return;
 
-		// see if the colliding object was a valid recipient
-		if ((m_Recipient.Tags.Count > 0) && !m_Recipient.Tags.Contains(col.gameObject.tag))
-			return;
+        if (inventory == null)
+        {
+            Debug.Log("Inventaire nul");
+            return;
+        }
+
+        // see if the colliding object was a valid recipient
+        if ((m_Recipient.Tags.Count > 0) && !m_Recipient.Tags.Contains(col.gameObject.tag))
+        {
+            Debug.Log("recipient non valid");
+            return;
+        }
 
 		bool result = false;
 
 		int prevAmount = vp_TargetEventReturn<vp_ItemType, int>.SendUpwards(col, "GetItemCount", m_Item.Type);
 
+        if (col.GetComponent<vp_PlayerInventory>().itemHeld != null)
+        {
+            put = true;
+        }
 
-		if (ItemType == typeof(vp_ItemType))
-			result = vp_TargetEventReturn<vp_ItemType, int, bool>.SendUpwards(col, "TryGiveItem", m_Item.Type, ID);
-		else if (ItemType == typeof(vp_UnitBankType))
-			result = vp_TargetEventReturn<vp_UnitBankType, int, int, bool>.SendUpwards(col, "TryGiveUnitBank", (m_Item.Type as vp_UnitBankType), Amount, ID);
-		else if (ItemType == typeof(vp_UnitType))
-			result = vp_TargetEventReturn<vp_UnitType, int, bool>.SendUpwards(col, "TryGiveUnits", (m_Item.Type as vp_UnitType), Amount);
-		else if (ItemType.BaseType == typeof(vp_ItemType))
-			result = vp_TargetEventReturn<vp_ItemType, int, bool>.SendUpwards(col, "TryGiveItem", m_Item.Type, ID);
-		else if (ItemType.BaseType == typeof(vp_UnitBankType))
-			result = vp_TargetEventReturn<vp_UnitBankType, int, int, bool>.SendUpwards(col, "TryGiveUnitBank", (m_Item.Type as vp_UnitBankType), Amount, ID);
-		else if (ItemType.BaseType == typeof(vp_UnitType))
-			result = vp_TargetEventReturn<vp_UnitType, int, bool>.SendUpwards(col, "TryGiveUnits", (m_Item.Type as vp_UnitType), Amount);
+
+        if (ItemType == typeof(vp_ItemType))
+        {
+            if (!put)
+            {
+                Debug.Log("prendre");
+                result = vp_TargetEventReturn<vp_ItemType, int, bool>.SendUpwards(col, "TryGiveItem", m_Item.Type, ID);
+            }
+            
+            else
+            {
+                Debug.Log("poser");
+                //TODO : supprimer l'objet tenu de l'inventaire (et obtenir result = true)
+                //result = vp_TargetEventReturn<vp_ItemType, int, bool>.SendUpwards(col, "TryRemoveItem", m_Item.Type, col.GetComponent<vp_PlayerInventory>().itemHeld.GetComponent<vp_ItemPickup>().ID);
+                result = col.GetComponent<vp_PlayerInventory>().TryRemoveItem(m_Item.Type, col.GetComponent<vp_PlayerInventory>().itemHeld.GetComponent<vp_ItemPickup>().ID);
+                Debug.Log(result);
+            }
+            
+        }
+        else if (ItemType == typeof(vp_UnitBankType))
+            result = vp_TargetEventReturn<vp_UnitBankType, int, int, bool>.SendUpwards(col, "TryGiveUnitBank", (m_Item.Type as vp_UnitBankType), Amount, ID);
+        else if (ItemType == typeof(vp_UnitType))
+            result = vp_TargetEventReturn<vp_UnitType, int, bool>.SendUpwards(col, "TryGiveUnits", (m_Item.Type as vp_UnitType), Amount);
+        else if (ItemType.BaseType == typeof(vp_ItemType))
+            result = vp_TargetEventReturn<vp_ItemType, int, bool>.SendUpwards(col, "TryGiveItem", m_Item.Type, ID);
+        else if (ItemType.BaseType == typeof(vp_UnitBankType))
+            result = vp_TargetEventReturn<vp_UnitBankType, int, int, bool>.SendUpwards(col, "TryGiveUnitBank", (m_Item.Type as vp_UnitBankType), Amount, ID);
+        else if (ItemType.BaseType == typeof(vp_UnitType))
+            result = vp_TargetEventReturn<vp_UnitType, int, bool>.SendUpwards(col, "TryGiveUnits", (m_Item.Type as vp_UnitType), Amount);
 
 		if (result == true)
 		{
@@ -477,7 +510,7 @@ public class vp_ItemPickup : MonoBehaviour
 		{
 			OnFail(col.transform);
 		}
-
+        
 
 	}
 
@@ -500,7 +533,7 @@ public class vp_ItemPickup : MonoBehaviour
 	protected virtual void OnSuccess(Transform recipient) //Recipient = player
 	{
 
-		m_Depleted = true;
+		//m_Depleted = true;
 
 		if ((m_Sound.PickupSound != null)
 			&& vp_Utility.IsActive(gameObject)
@@ -511,29 +544,40 @@ public class vp_ItemPickup : MonoBehaviour
 		}
 
         //Gérer le comportement ici
+        GameObject held = recipient.GetComponent<vp_PlayerInventory>().itemHeld;
+        if (held == null) //Si on a les mains vides, on saisit l'objet
+        {
+            //Renderer.enabled = false;
+            this.transform.SetParent(attachTo.transform);
+            this.transform.localPosition = range;
+            recipient.GetComponent<vp_PlayerInventory>().itemHeld = this.gameObject;
+            
+            //Gestion du message
+            string msg = "";
 
-        //Renderer.enabled = false;
-        this.transform.SetParent(attachTo.transform);
-        this.transform.localPosition = range;
+            if ((m_PickedUpAmount < 2) || (ItemType == typeof(vp_UnitBankType)) || (ItemType.BaseType == typeof(vp_UnitBankType)))
+                msg = string.Format(m_Messages.SuccessSingle, m_Item.Type.IndefiniteArticle, m_Item.Type.DisplayName, m_Item.Type.DisplayNameFull, m_Item.Type.Description, m_PickedUpAmount.ToString());
+            else
+                msg = string.Format(m_Messages.SuccessMultiple, m_Item.Type.IndefiniteArticle, m_Item.Type.DisplayName, m_Item.Type.DisplayNameFull, m_Item.Type.Description, m_PickedUpAmount.ToString());
 
-        //Gestion du message
-		string msg = "";
+            vp_FPPlayerEventHandler localPlayer = recipient.transform.root.GetComponentInChildren<vp_FPPlayerEventHandler>();
+            if (localPlayer != null)
+                localPlayer.HUDText.Send(msg);
 
-		if ((m_PickedUpAmount < 2) || (ItemType == typeof(vp_UnitBankType)) || (ItemType.BaseType == typeof(vp_UnitBankType)))
-			msg = string.Format(m_Messages.SuccessSingle, m_Item.Type.IndefiniteArticle, m_Item.Type.DisplayName, m_Item.Type.DisplayNameFull, m_Item.Type.Description, m_PickedUpAmount.ToString());
-		else
-			msg = string.Format(m_Messages.SuccessMultiple, m_Item.Type.IndefiniteArticle, m_Item.Type.DisplayName, m_Item.Type.DisplayNameFull, m_Item.Type.Description, m_PickedUpAmount.ToString());
+            if (vp_Gameplay.IsMultiplayer && vp_Gameplay.IsMaster)
+                vp_GlobalEvent<vp_ItemPickup, Transform>.Send("TransmitPickup", this, recipient);	// will only execute on the master in multiplayer
+            
+        }
+        else // Si on a un objet dans les mains, on le pose sur la cible
+        {
+            held.transform.SetParent(this.transform);
+            held.transform.localPosition = 0.5f*Vector3.Normalize(attachTo.transform.position - this.transform.position);
+            recipient.GetComponent<vp_PlayerInventory>().itemHeld = null;
 
-        vp_FPPlayerEventHandler localPlayer = recipient.transform.root.GetComponentInChildren<vp_FPPlayerEventHandler>();
-        if (localPlayer != null)
-            localPlayer.HUDText.Send(msg);
+        }
 
 
-        if (vp_Gameplay.IsMultiplayer && vp_Gameplay.IsMaster)
-			vp_GlobalEvent<vp_ItemPickup, Transform>.Send("TransmitPickup", this, recipient);	// will only execute on the master in multiplayer
-
-
-	}
+    }
 
 
 	/// <summary>

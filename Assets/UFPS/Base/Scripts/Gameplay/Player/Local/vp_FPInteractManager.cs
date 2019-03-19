@@ -137,7 +137,7 @@ public class vp_FPInteractManager : MonoBehaviour
 				return false;
 
             // check if we can interact with the interactable, if so, carry on
-            if (!m_LastInteractable.TryInteract(m_Player))//Try interact de ItemGrab opère l'action
+            if (!m_LastInteractable.TryInteract(m_Player))//TryInteract de ItemGrab opère l'action
             {
                 Debug.Log("Can't interact!");
                 return false;

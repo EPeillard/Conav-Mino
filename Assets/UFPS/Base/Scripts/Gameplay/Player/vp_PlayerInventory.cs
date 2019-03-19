@@ -16,6 +16,7 @@ using System.Collections.Generic;
 
 public class vp_PlayerInventory : vp_Inventory
 {
+    public GameObject itemHeld = null;
 
 	protected Dictionary<vp_ItemType, object> m_PreviouslyOwnedItems = new Dictionary<vp_ItemType, object>();
 	protected vp_ItemIdentifier m_WeaponIdentifierResult;
