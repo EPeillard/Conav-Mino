@@ -26,6 +26,8 @@ public class vp_ItemPickup : MonoBehaviour
 
     public GameObject attachTo;
     public Vector3 range;
+    public GameObject viewFrom;
+    public Vector3 center;
 
 #if UNITY_EDITOR
 	[vp_ItemID]
@@ -439,7 +441,9 @@ public class vp_ItemPickup : MonoBehaviour
             return;
         }
 
+        // Is the current action "placing an object"?
         bool put = false;
+
 
 		vp_Inventory inventory;
         if (!m_ColliderInventories.TryGetValue(col, out inventory))
@@ -462,53 +466,65 @@ public class vp_ItemPickup : MonoBehaviour
             return;
         }
 
-		bool result = false;
+
+        // Did the action work?
+		bool resultPick = false;
+        bool resultPut = false;
 
 		int prevAmount = vp_TargetEventReturn<vp_ItemType, int>.SendUpwards(col, "GetItemCount", m_Item.Type);
 
-        if (col.GetComponent<vp_PlayerInventory>().itemHeld != null)
-        {
-            put = true;
-        }
+        // If an item is held, try to place it, else try to pick one
+        put = (col.GetComponent<vp_PlayerInventory>().itemHeld != null);
 
 
         if (ItemType == typeof(vp_ItemType))
         {
-            if (!put)
+            if (!put) //If we are picking up an item
             {
                 Debug.Log("prendre");
-                result = vp_TargetEventReturn<vp_ItemType, int, bool>.SendUpwards(col, "TryGiveItem", m_Item.Type, ID);
+                if (this.gameObject.name != "Table" && this.gameObject.name != "Plinth")
+                {
+                    resultPick = vp_TargetEventReturn<vp_ItemType, int, bool>.SendUpwards(col, "TryGiveItem", m_Item.Type, ID); //Try to add it to the inventory
+                }
             }
             
-            else
+            else //If we are putting back an item
             {
                 Debug.Log("poser");
-                //TODO : supprimer l'objet tenu de l'inventaire (et obtenir result = true)
+                resultPut = OnSuccess(col.transform); //Try to place it
                 //result = vp_TargetEventReturn<vp_ItemType, int, bool>.SendUpwards(col, "TryRemoveItem", m_Item.Type, col.GetComponent<vp_PlayerInventory>().itemHeld.GetComponent<vp_ItemPickup>().ID);
-                result = col.GetComponent<vp_PlayerInventory>().TryRemoveItem(m_Item.Type, col.GetComponent<vp_PlayerInventory>().itemHeld.GetComponent<vp_ItemPickup>().ID);
-                Debug.Log(result);
+                Debug.Log(resultPut);
             }
             
         }
         else if (ItemType == typeof(vp_UnitBankType))
-            result = vp_TargetEventReturn<vp_UnitBankType, int, int, bool>.SendUpwards(col, "TryGiveUnitBank", (m_Item.Type as vp_UnitBankType), Amount, ID);
+            resultPick = vp_TargetEventReturn<vp_UnitBankType, int, int, bool>.SendUpwards(col, "TryGiveUnitBank", (m_Item.Type as vp_UnitBankType), Amount, ID);
         else if (ItemType == typeof(vp_UnitType))
-            result = vp_TargetEventReturn<vp_UnitType, int, bool>.SendUpwards(col, "TryGiveUnits", (m_Item.Type as vp_UnitType), Amount);
+            resultPick = vp_TargetEventReturn<vp_UnitType, int, bool>.SendUpwards(col, "TryGiveUnits", (m_Item.Type as vp_UnitType), Amount);
         else if (ItemType.BaseType == typeof(vp_ItemType))
-            result = vp_TargetEventReturn<vp_ItemType, int, bool>.SendUpwards(col, "TryGiveItem", m_Item.Type, ID);
+            resultPick = vp_TargetEventReturn<vp_ItemType, int, bool>.SendUpwards(col, "TryGiveItem", m_Item.Type, ID);
         else if (ItemType.BaseType == typeof(vp_UnitBankType))
-            result = vp_TargetEventReturn<vp_UnitBankType, int, int, bool>.SendUpwards(col, "TryGiveUnitBank", (m_Item.Type as vp_UnitBankType), Amount, ID);
+            resultPick = vp_TargetEventReturn<vp_UnitBankType, int, int, bool>.SendUpwards(col, "TryGiveUnitBank", (m_Item.Type as vp_UnitBankType), Amount, ID);
         else if (ItemType.BaseType == typeof(vp_UnitType))
-            result = vp_TargetEventReturn<vp_UnitType, int, bool>.SendUpwards(col, "TryGiveUnits", (m_Item.Type as vp_UnitType), Amount);
+            resultPick = vp_TargetEventReturn<vp_UnitType, int, bool>.SendUpwards(col, "TryGiveUnits", (m_Item.Type as vp_UnitType), Amount);
 
-		if (result == true)
+		if (resultPick) //If the item was correctly added to the inventory, pick it up
 		{
 			m_PickedUpAmount = (vp_TargetEventReturn<vp_ItemType, int>.SendUpwards(col, "GetItemCount", m_Item.Type) - prevAmount);	// calculate resulting amount given
-			OnSuccess(col.transform); //Actions à opérer le cas échéant
+			resultPick = OnSuccess(col.transform); //Actions à opérer le cas échéant
 		}
 		else
 		{
-			OnFail(col.transform);
+            if (resultPut) //If the item was correctly put back, remove it from the inventory
+            {
+                resultPut = col.GetComponent<vp_PlayerInventory>().TryRemoveItem(m_Item.Type, col.GetComponent<vp_PlayerInventory>().itemHeld.GetComponent<vp_ItemPickup>().ID);
+                col.GetComponent<vp_PlayerInventory>().itemHeld = null;
+                Debug.Log(resultPut);
+            }
+            else //If nothing worked
+            {
+                OnFail(col.transform);
+            }
 		}
         
 
@@ -530,8 +546,10 @@ public class vp_ItemPickup : MonoBehaviour
 	/// <summary>
 	/// Appelée en cas de réussite de TryGiveTo, permet de gérer l'effet de l'interaction
 	/// </summary>
-	protected virtual void OnSuccess(Transform recipient) //Recipient = player
+	protected virtual bool OnSuccess(Transform recipient) //Recipient = player
 	{
+        //Did the action work?
+        bool result = false;
 
 		//m_Depleted = true;
 
@@ -550,8 +568,13 @@ public class vp_ItemPickup : MonoBehaviour
             //Renderer.enabled = false;
             this.transform.SetParent(attachTo.transform);
             this.transform.localPosition = range;
-            recipient.GetComponent<vp_PlayerInventory>().itemHeld = this.gameObject;
-            
+            if (this.gameObject.name != "Table" && this.gameObject.name != "Plinth")
+            {
+                recipient.GetComponent<vp_PlayerInventory>().itemHeld = this.gameObject;
+            }
+
+            result = true;
+
             //Gestion du message
             string msg = "";
 
@@ -571,12 +594,22 @@ public class vp_ItemPickup : MonoBehaviour
         else // Si on a un objet dans les mains, on le pose sur la cible
         {
             held.transform.SetParent(this.transform);
-            held.transform.localPosition = 0.5f*Vector3.Normalize(attachTo.transform.position - this.transform.position);
-            recipient.GetComponent<vp_PlayerInventory>().itemHeld = null;
+
+            if (held.transform.parent == this.transform) //If the item was correctly relocated
+            {
+                Debug.Log("New parent!");
+                held.transform.localPosition = center + 0.3f*Vector3.Dot(Vector3.Normalize(this.transform.localScale), viewFrom.transform.forward) * Vector3.Normalize(viewFrom.transform.position - this.transform.position - center);
+                //held.transform.localPosition = center + Vector3.Normalize(viewFrom.transform.position - this.transform.position);
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
 
         }
 
-
+        return result;
     }
 
 
