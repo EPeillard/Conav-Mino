@@ -65,7 +65,7 @@ public class dust : MonoBehaviour
                     noise.transform.localPosition = new Vector3(-4.9f, 2.8f, -0.87f);
                     clone.transform.localEulerAngles = new Vector3(180.0f, 180.0f, 90.0f);
                     break;
-                case "Broken Wall 1":
+                case "Broken Wall ":
                     clone.transform.localPosition = new Vector3(-4.16f, 2.8f, -0.84f);
                     noise.transform.localPosition = new Vector3(-4.16f, 2.8f, -0.84f);
                     clone.transform.localEulerAngles = new Vector3(180.0f, 0.0f, 90.0f);
